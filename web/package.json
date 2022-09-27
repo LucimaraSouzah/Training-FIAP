@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "sass --watch ./assets/scss:./assets/css --style compressed --no-source-map",
-    "git": "git add --all && git commit -m 'Web' && git push -u origin main"
+    "git": "git add --all && git commit -m Web com HTML5, CSS3 e JavaScript && git push -u origin main"
   },
   "keywords": [],
   "author": "",
