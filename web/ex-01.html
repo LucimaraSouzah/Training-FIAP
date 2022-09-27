@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Curso HTML5, CSS3 e JavaScript</title>
+    <style type="text/css">
+      /* Mobile */
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      div.container {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(rgba(0, 0, 0, 0.5) 70%, rgba(0, 0, 0, 0.2));
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin: 0;
+        font-weight: 300;
+        font-family: "Roboto", sans-serif;
+        color: #555;
+      }
+      h1.titulo {
+        font-size: 2em;
+        color: #fff;
+      }
+
+      h2.titulo {
+        font-size: 1.5em;
+      }
+      body {
+        background: url("assets/images/background-mobile.webp") no-repeat;
+        background-size: cover;
+        background-position: center center;
+      }
+      /* Tablet */
+      @media (min-width: 768px) {
+        body {
+          background: url("assets/images/background-tablet.webp") no-repeat;
+          background-size: cover;
+          background-position: center center;
+        }
+      }
+      /* Desktop */
+      @media (min-width: 1280px) {
+        body {
+          background: url("assets/images/background-desktop.webp") no-repeat;
+          background-size: cover;
+          background-position: center center;
+        }
+      }
+      /* Extra Large */
+      @media (min-width: 1680px) {
+        body {
+          background: url("assets/images/background-desktop.webp") no-repeat;
+          background-size: cover;
+          background-position: center center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="titulo">Seja Bem-vindo(a) ao Curso de HTML5, CSS3 e JavaScript</h1>
+      <h2 class="titulo">Estamos estudando no momento: <i>HTML5</i></h2>
+    </div>
+  </body>
+</html>
