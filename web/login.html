@@ -39,48 +39,44 @@
       </nav>
       <button class="top-button">Abra sua conta</button>
     </header>
-    <section class="full-banner">
-      <div class="destak">
-        <h3>
-          <span>C6 GLOBAL INVEST</span>Bolsa Americana e fundos globais direto
-          no app
-        </h3>
-        <h1>O banco da vida de 20 milhões de pessoas</h1>
-        <h2>
-          Conta digital, cartão de crédito, investimento e mais: tudo em um só
-          app.
-        </h2>
-        <button>Nossos produtos</button>
+    <section class="full-banner-form">
+      <div class="container-login">
+        <form action="cadastro2.php" method="post" class="form-login">
+          <label for="login"
+            >CPF*
+            <input
+              type="text"
+              name="login"
+              placeholder="Digite o CPF"
+              id="login"
+              required
+              oninvalid="this.setCustomValidity('Preencha o campo CPF')"
+              oninput="this.setCustomValidity('')"
+          /></label>
+          <label for="password"
+            >Senha*
+            <input
+              type="password"
+              name="password"
+              placeholder="Digite a senha"
+              id="password"
+              required
+              title="A senha deve conter, ao menos uma letra minúscula, uma letra maiúscula, um número e 8 caracteres"
+              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+          /></label>
+          <button type="submit">Continuar</button>
+          <p><a href="#">Esqueci a senha</a></p>
+          <p><a href="#">Ainda não sou cadastrado(a)</a></p>
+        </form>
       </div>
     </section>
     <footer></footer>
     <script>
       const header = document.querySelector(".top-site");
       const button = document.querySelector(".top-button");
-      const body = document.querySelector("body");
       header.style.background = "none";
       button.style.width = "150px";
       button.classList.add("disabled");
-
-      window.addEventListener("scroll", (e) => {
-        if (window.scrollY < 100) {
-          header.style.background = "none";
-          button.classList.add("disabled");
-        } else {
-          const logo = header.querySelector(".jss12");
-          if (window.scrollY >= body.clientHeight - 1000) {
-            header.style.background = "#000";
-            logo.style.fill = "#fff";
-            header.classList.add("footer-link-a");
-          } else {
-            header.style.background = "#fff";
-            button.classList.remove("disabled");
-            logo.style.fill = "#000";
-            header.classList.remove("footer-link-a");
-            console.log(body.clientHeight);
-          }
-        }
-      });
     </script>
   </body>
 </html>
