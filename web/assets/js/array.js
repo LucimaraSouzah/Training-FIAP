@@ -94,17 +94,61 @@ const nomeCompleto = "Lucimara Aparecida de Souza Assis";
 const nomeArray = nomeCompleto.split(" ");
 const americanName = [nomeArray.at(-1), nomeArray[0]].join(", ");
 
-const removeUm = newCarros.splice(3)
+const removeUm = newCarros.splice(3);
 
 console.log(removeUm, "Remove um, splice");
 console.log(americanName, "Formato americano");
 console.log(newCarros, "NewCarros");
 
-//push, pop
-//shift, unshift
-//splice
-//split
-//join
+console.log("------------------------------------------------------------");
+const frutas = ["Banana", "Maçã", "Pera", "Uva", "Melancia"];
+
+const primeiras = frutas.slice(3); //copia o array
+console.log(frutas, " slice o array original não muda");
+console.log(
+  primeiras,
+  "slice - a partir da primeira posição até a terceira que no caso é o índice 2"
+);
+
+console.log("------------------------------------------");
+// Programação funcional - imutabilidade, os dados não mudam. O array original não é alterado.
+// slice - copia o array.
+//slice
+const filtro = function (item) {
+  return item === "Pera" || item === "Maçã";
+  //return item.toLowerCase();
+};
+
+// console.log(filtro("Pera"));
+const frutasMap = frutas.map(filtro); // map - retorna um novo array. Do início ao fim.
+const frutasFilter = frutas.filter(filtro); // filter - retorna um novo array. Filtrando apenas true.
+const frutasFind = frutas.find(filtro); // find - retorna a primeira ocorrência que for true.
+
+console.log(frutasFind);
+
+idadeArray = [10, 18, 30, 70, 80];
+
+const procuraIdade = (idade) => {
+  if (idade >= 0 && idade <= 2) {
+    return "Bebê";
+  } else if (idade >= 3 && idade <= 11) {
+    return "Criança";
+  } else if (idade >= 12 && idade <= 17) {
+    return "Adolescente";
+  } else if (idade >= 18 && idade <= 60) {
+    return "Adulto";
+  } else {
+    return "Idoso";
+  }
+};
+
+const mapAge = idadeArray.map(procuraIdade);
+const filterAge = idadeArray.filter((idade) => idade >= 18 && idade <= 60);
+const findAge = idadeArray.find((idade) => idade > 60);
+
+console.log(mapAge);
+console.log(filterAge, 'Adulto');
+console.log(findAge, 'Idoso');
 
 // Programação funcional
 //slice
