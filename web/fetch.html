@@ -6,15 +6,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Consultando CEP</title>
   </head>
+  <style>
+    form {
+      width: 400px;
+      display: flex;
+      flex-direction: column;
+      font-family: "Open Sans", sans-serif;
+    }
+    label {
+      display: flex;
+      flex-direction: column;
+      margin-top: 5%;
+    }
+    input {
+      border: solid 0.5px #ddd;
+      height: 50px;
+      line-height: 50px;
+      width: 100%;
+      border-radius: 10px;
+      padding-left: 10%;
+      outline: aqua;
+      font-size: 1.5em;
+    }
+  </style>
   <body>
-      Digite o CEP:
-      <input
-        type="text"
-        id="cep"
-        maxlength="9"
-        pattern="^\d{5}-?\d{3}$"
-        required
-      />
+    <form>
+      <label
+        >Digite o CEP:
+        <input
+          type="text"
+          id="cep"
+          maxlength="9"
+          pattern="^\d{5}-?\d{3}$"
+          required
+        />
+      </label>
+      <label
+        >Endereço*
+        <input type="text" id="logradouro" />
+      </label>
+      <label
+        >Bairro*
+        <input type="text" id="bairro" />
+      </label>
+      <label
+        >Número*
+        <input type="text" id="numero" />
+      </label>
+      <label
+        >Complemento
+        <input type="text" id="complemento" />
+      </label>
+      <label
+        >Cidade*
+        <input type="text" id="localidade" />
+      </label>
+      <label
+        >UF*
+        <input type="text" id="uf" />
+      </label>
+      <button type="submit">Enviar</button>
+    </form>
     <div id="resultado"></div>
     <script type="text/javascript" src="assets/js/fetch.js"></script>
   </body>

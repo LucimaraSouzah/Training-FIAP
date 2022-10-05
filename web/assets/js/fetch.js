@@ -1,9 +1,22 @@
 const cep = document.querySelector("#cep");
-const resultado = document.querySelector("#resultado");
+
+const showData = (result) => {
+  for (const campo in result) {
+    if (document.querySelector("#" + campo)) {
+      document.querySelector("#" + campo).value = result[campo];
+    }
+  }
+};
 
 // evento blur significa que clicamos na caixa de texto e saimos dela
-cep.addEventListener("blur", (e) => {
+cep.addEventListener("blur", async (e) => {
   let search = cep.value.replace("-", "");
+
+  if (search.length < 8 || isNaN(search)) {
+    alert("CEP inválido");
+    cep.value = "";
+    return;
+  }
 
   const options = {
     method: "GET",
@@ -11,19 +24,11 @@ cep.addEventListener("blur", (e) => {
     cache: "default",
   };
 
-  fetch(`https://viacep.com.br/ws/${search}/json/`, options)
-    .then((response) =>
-      response
-        .json()
-        .then(
-          (result) =>
-            (resultado.innerHTML =
-              result.logradouro +
-              ", " +
-              result.bairro +
-              " - " +
-              result.localidade)
-        )
-    )
-    .catch((e) => console.log(e.message));
+  const resultado = await fetch(
+    `https://viacep.com.br/ws/${search}/json/`,
+    options
+  );
+  const json = await resultado.json();
+
+  showData(json);
 });
