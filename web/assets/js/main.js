@@ -25,11 +25,11 @@ function escreve(x) {
   console.log(x);
 }
 
-function mudaTitulo(novoTitulo) {
-  document.querySelector("h1").innerHTML = "<i>" + novoTitulo + "</i>";
-}
+// function mudaTitulo(novoTitulo) {
+//   document.querySelector("h1").innerHTML = "<i>" + novoTitulo + "</i>";
+// }
 
-mudaTitulo("Vai Corinthians!");
+// mudaTitulo("Vai Corinthians!");
 
 //expressão de função - function expression
 //função anônima - que não tem nome.
@@ -37,14 +37,14 @@ const mudaTitulo2 = function (target, novoTitulo) {
   document.querySelector(target).innerHTML = novoTitulo;
 };
 
-mudaTitulo2("h2", "Trocando subtítulo");
+// mudaTitulo2("h2", "Trocando subtítulo");
 
-const relogio = () => {
-  const date = new Date();
-  mudaTitulo2("h2", date.toLocaleTimeString());
-};
+// const relogio = () => {
+//   const date = new Date();
+//   mudaTitulo2("h2", date.toLocaleTimeString());
+// };
 
-setInterval(relogio, 1000);
+// setInterval(relogio, 1000);
 
 const frases = [
   "Um banco para 20 milhões de pessoas",

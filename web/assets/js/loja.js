@@ -1,18 +1,17 @@
-// <!-- Acessar a url pelo JS (fetch) -->
-// <!-- Conseguir listar os produtos (10) -->
-// <!-- Titulo e descrição do produto -->
-
-// const products = document.querySelector("#products");
-const title = document.querySelector("#title");
-const description = document.querySelector("#description");
+const products = document.querySelector("#products");
 
 const showData = (result) => {
-  for (const campo in result) {
-    if (document.querySelector("#" + campo)) {
-      document.querySelector("#" + campo).innerHTML = result[campo];
-      console.log(result[campo])
-    }
-  }
+  result.map((data) => {
+    products.innerHTML += `
+    <div id="product">
+        <h3 id="title">${data.title}</h3>
+        <p id="description">${data.description}</p>
+        <img id="image" src="${data.thumbnail}" alt="${data.title}"/>
+        <h2 id="price">R$ ${data.price}</h2>
+        <button id="button">Comprar</button>
+     </div>
+    `;
+  });
 };
 
 const fetchProdutos = async () => {
@@ -26,7 +25,7 @@ const fetchProdutos = async () => {
     options
   );
   const json = await resultado.json();
-  json.products.map((e) => showData(e));
+  showData(json.products);
 };
 
 fetchProdutos();
