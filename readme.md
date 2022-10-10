@@ -8,7 +8,7 @@
 <h3>Conteúdo 📕<h3>
 → <a href="https://github.com/LucimaraSouzah/Training-FIAP/tree/main/logica">Lógica de Programação com TypeScript<a/><br>
 → <a href="https://github.com/LucimaraSouzah/Training-FIAP/tree/main/web">HTML5, CSS3 e JavaScript<a/><br>
-→ ReactJS<br>
+→ <a href="https://github.com/LucimaraSouzah/Training-FIAP/tree/main/react">ReactJS</a><br>
 → NodeJS e NestJS<br>
 → <a href="https://github.com/LucimaraSouzah/Training-FIAP/tree/main/desafios">Trabalho em grupo<a/>
 
