@@ -3,6 +3,8 @@ import styles from "./Header.module.css";
 import { css } from "@emotion/css";
 import Link from "next/link";
 import styled from "@emotion/styled";
+import Input from "./Form/Input"
+import Button from "./Form/Button/Button";
 
 const HeaderPage = styled.header`
   width: 100%;
@@ -28,25 +30,6 @@ const NavMenu = styled.nav`
   }
   & li:hover {
     border-bottom: 4px solid orange;
-  }
-`;
-
-const Input = styled.input`
-  border-radius: 10px;
-  outline: 0;
-  border: 0;
-  height: 40%;
-  width: 20%;
-  margin-right: 10px;
-  box-shadow: 0px 0px 2px rgb(0, 0, 0.2);
-`;
-
-const Button = styled.button`
-  border: 1px solid #ccc;
-  height: 40%;
-  border-radius: 10px;
-  &:hover {
-    background-color: #f0f04b;
   }
 `;
 
@@ -97,7 +80,7 @@ export default function Header(props: HeaderProps) {
           </li>
         </ul>
       </NavMenu>
-      <Input type="text" placeholder="Digite sua busca"></Input>
+      <Input type="text" placeholder="Digite sua busca"/>
       <Button>{props.pesquisar ? props.pesquisar : "Pesquisar"}</Button>
     </HeaderPage>
     // </header>
