@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
-import {
-  Container,
-  CssBaseline,
-} from "@mui/material";
+import { Box, Container, CssBaseline, Typography } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Copyright from "../components/utils/Copyright/Index";
-import Login from "../components/Form/Login/Login";
+import Login from "../components/Form/Login/Index";
+import Link from "next/link";
 
 const theme = createTheme();
 
@@ -32,7 +30,22 @@ export default function LoginPage() {
         </Button>
         Contador vale {contador} */}
         <Login />
-        <Copyright site="Avanade" />
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            color: "#1565c0",
+            fontSize: "16px",
+            fontWeight:'bold',
+            marginBottom: '20px'
+          }}
+        >
+          <Typography component="p">Não tem cadastro?</Typography>
+          <Link href="/register">Faça aqui</Link>
+        </Box>
+        <Copyright site="Avanade"/>
       </Container>
     </ThemeProvider>
   );
