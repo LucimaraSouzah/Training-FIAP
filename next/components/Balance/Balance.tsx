@@ -1,34 +1,39 @@
-import React from 'react'
-import styled from '@emotion/styled'   
-import Link from 'next/link'
+import React from "react";
+import styled from "@emotion/styled";
+import Link from "next/link";
 
 const BalanceContainer = styled.div`
-display: flex;
-flex-direction: column;
-width: 100%;
-height: 180px;
-color: #f8f8f8;
-background: #242424;
-padding-left: 30px;
-padding-bottom: 30px;
-& > div > strong {
-  font-size: 1.8rem;
-  margin-right: 10%;
-}
-`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  color: #f8f8f8;
+  background: #242424;
+  & > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+`;
 
 type BalanceProps = {
-  amount: number
-}
+  amount: number;
+};
 
-export default function Balance(props:BalanceProps) {
+export default function Balance(props: BalanceProps) {
   return (
     <BalanceContainer>
-      <p>Saldo</p>
       <div>
-        <strong>{new Intl.NumberFormat('pt-br', {style:'currency',  currency: 'BRL'}).format(props.amount)}</strong>
-        <Link href="#"><a>MOSTRAR</a></Link>
+        <p>Saldo:</p>
+        <strong>
+          {new Intl.NumberFormat("pt-br", {
+            style: "currency",
+            currency: "BRL",
+          }).format(props.amount)}
+        </strong>
+        <Link href="#">
+          <a>MOSTRAR</a>
+        </Link>
       </div>
     </BalanceContainer>
-  )
+  );
 }

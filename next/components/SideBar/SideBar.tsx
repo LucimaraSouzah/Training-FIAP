@@ -8,6 +8,8 @@ const SideBarContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 360px;
+  height: 100vh;
+  background: #242424;
 `;
 
 export default function SideBar() {
