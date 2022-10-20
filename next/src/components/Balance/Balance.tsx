@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
-import Link from "next/link";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 const BalanceContainer = styled.div`

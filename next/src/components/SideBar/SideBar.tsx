@@ -10,6 +10,7 @@ const SideBarContainer = styled.div`
   width: 360px;
   height: 100vh;
   background: #242424;
+  position: fixed;
 `;
 
 export default function SideBar() {
@@ -20,10 +21,10 @@ export default function SideBar() {
         role="Assoc, Dev FullStack"
         avatar="https://avatars.githubusercontent.com/u/95291739?v=4"
         agency="0001"
-        accountNumber="123456789"
+        accountNumber="123456780-0"
       />
-      <Balance amount={20000}/>
-      <Menu/>
+      <Balance amount={20000} />
+      <Menu />
     </SideBarContainer>
   );
 }

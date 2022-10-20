@@ -1,6 +1,6 @@
-import { Stack, Snackbar as Container, AlertProps, AlertColor } from "@mui/material";
-import Alert from "../Alert/Index"
 import React, { useState } from "react";
+import { Stack, Snackbar as Container, AlertColor } from "@mui/material";
+import Alert from "../Alert"
 
 type SnackbarProps = {
   open: boolean;
@@ -8,7 +8,6 @@ type SnackbarProps = {
   severity: AlertColor
   hide: number
 };
-
 
 export default function Snackbar(props: SnackbarProps) {
   const [open, setOpen] = useState<boolean>(props.open);

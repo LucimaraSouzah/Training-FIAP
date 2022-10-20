@@ -9,7 +9,7 @@ const ExtractContainer = styled.div`
   min-height: 100vh;
 `;
 
-export default function extractPage() {
+export default function ExtractPage() {
   return (
     <ExtractContainer>
       <SideBar />

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
-import ExtractHeader from "../ExtractHeader";
-import ExtractTotal from "../ExtractTotal";
+// import ExtractHeader from "../ExtractHeader";
+// import ExtractTotal from "../ExtractTotal";
 import ExtractData from "../ExtractData";
 import db from "../utils/db";
 

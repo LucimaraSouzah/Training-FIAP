@@ -2,8 +2,8 @@
 import React, { useEffect, useState } from "react";
 import { Container, CssBaseline } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Copyright from "../components/utils/Copyright/Index";
-import Register from "../components/Form/Register";
+import Copyright from "../components/utils/Copyright";
+import Register from "../components/Register";
 
 // const Container = styled.div`
 //   width: 100%;
@@ -16,9 +16,7 @@ import Register from "../components/Form/Register";
 // `;
 const theme = createTheme();
 
-export default function registerPage() {
-
-  const [open, setOpen] = useState<boolean | undefined>(false);
+export default function RegisterPage() {
   const [contador, setContador] = useState<number>(0);
 
   useEffect(() => {

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import TypeDb from "../../types/TypeDb";
+import TypeDb from "../../../types/TypeDb";
 
 const ExtractDataContainer = styled.table`
   width: 100%;
