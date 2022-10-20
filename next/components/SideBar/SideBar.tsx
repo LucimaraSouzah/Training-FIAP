@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "@emotion/styled";
-import Profile from "../Profile/Index";
-import Balance from "../Balance/Index";
-import Menu from "../Menu/Index";
+import Profile from "../Profile";
+import Balance from "../Balance";
+import Menu from "../Menu";
 
 const SideBarContainer = styled.div`
   display: flex;
