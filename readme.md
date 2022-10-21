@@ -6,11 +6,11 @@
 
 <hr>
 <h3>Conteúdo 📕<h3>
-→ <a href="https://github.com/LucimaraSouzah/Training-FIAP/tree/main/logica">Lógica de Programação com TypeScript<a/><br>
-→ <a href="https://github.com/LucimaraSouzah/Training-FIAP/tree/main/web">HTML5, CSS3 e JavaScript<a/><br>
-→ <a href="https://github.com/LucimaraSouzah/Training-FIAP/tree/main/react">ReactJS</a><br>
-→ NodeJS e NestJS<br>
-→ <a href="https://github.com/LucimaraSouzah/Training-FIAP/tree/main/desafios">Trabalho em grupo<a/>
+→ <a href="https://github.com/LucimaraSouzah/Training-FIAP/tree/main/logica">Lógica de Programação com TypeScript</a><br>
+→ <a href="https://github.com/LucimaraSouzah/Training-FIAP/tree/main/web">HTML5, CSS3 e JavaScript</a><br>
+→ <a href="https://github.com/LucimaraSouzah/Training-FIAP/tree/main/react">Reactjs e Nextjs</a><br>
+→ <a href="https://github.com/LucimaraSouzah/Training-FIAP/tree/main/node">Nodejs e Nestjs</a><br>
+→ <a href="https://github.com/LucimaraSouzah/Training-FIAP/tree/main/desafios">Trabalho em grupo</a>
 
 <hr>
-<h3>Status: 🟢<h3>
+<h3>🟢 Status: Em andamento.. <h3>
