@@ -10,6 +10,7 @@ import {
 } from '@nestjs/common';
 import { CreateUserDTO } from './dto/createUser';
 import { UpdateUserDTO } from './dto/updateUser';
+import { users } from '@prisma/client';
 
 @Controller('users')
 export class UsersController {
@@ -17,7 +18,7 @@ export class UsersController {
 
   // criar
   @Post()
-  async createUser(@Body() req: CreateUserDTO): Promise<string> {
+  async createUser(@Body() req: CreateUserDTO): Promise<users> {
     return this.usersService.createUser(req);
   }
 
@@ -34,14 +35,17 @@ export class UsersController {
   }
 
   // atualizar
-    @Patch(':id')
-    async update(@Param('id') id: string, @Body() req: UpdateUserDTO): Promise<string> {
-        return this.usersService.update(id, req);
-    }
+  @Patch(':id')
+  async update(
+    @Param('id') id: string,
+    @Body() req: UpdateUserDTO,
+  ): Promise<string> {
+    return this.usersService.update(id, req);
+  }
 
   // deletar
-    @Delete(':id')
-    async delete(@Param('id') id: string): Promise<string> {
-        return this.usersService.delete(id);
-    }
+  @Delete(':id')
+  async delete(@Param('id') id: string): Promise<string> {
+    return this.usersService.delete(id);
+  }
 }
