@@ -6,22 +6,28 @@ import { users } from '@prisma/client';
 export class UsersService {
   constructor(private prisma: PrismaService) {}
 
+  // FindUnique é um método do Prisma que retorna um único registro, que contém a constraint unique
+  // FindFirst é um método do Prisma que retorna o primeiro registro que satisfaz a condição
+
+  async getUserById(id: string): Promise<users> {
+    const user = await this.prisma.users.findUnique({
+      where: {
+        id: Number(id),
+      },
+    });
+    if (!user) {
+      throw new HttpException('Usuário não encontrado', HttpStatus.NOT_FOUND);
+    }
+    return user;
+  }
+
   async verifyUserExists(email: string): Promise<boolean> {
-    const user = await this.prisma.users.findFirst({
+    const user = await this.prisma.users.findUnique({
       where: {
         email,
       },
     });
-    if (user) {
-      throw new HttpException(
-        {
-          status: HttpStatus.BAD_REQUEST,
-          error: 'Email já cadastrado',
-        },
-        HttpStatus.BAD_REQUEST,
-      );
-    }
-    return false;
+    return user ? true : false;
   }
 
   async createUser(data): Promise<users> {
@@ -42,22 +48,65 @@ export class UsersService {
         throw new Error('Erro ao criar usuário');
       }
       return user;
+    } else {
+      throw new HttpException('Usuário já cadastrado', HttpStatus.BAD_REQUEST);
     }
   }
 
-  async findAll(): Promise<string> {
-    return 'Lista de usuários';
+  async findAll(): Promise<users[]> {
+    return this.prisma.users.findMany();
   }
 
-  async findOne(id: string): Promise<string> {
-    return `Usuário ${id}`;
+  async findOne(id: string): Promise<users> {
+    return this.prisma.users.findUnique({
+      where: {
+        id: Number(id),
+      },
+    });
   }
 
-  async update(id: string, req): Promise<string> {
-    return `Usuário ${id} atualizado com sucesso!`;
+  async update(id: string, req) {
+    const user = await this.getUserById(id);
+
+    const { name, email, password } = req;
+
+    const updatedUser = await this.prisma.users.update({
+      where: {
+        id: Number(id),
+      },
+      data: {
+        name: name ? name : user.name,
+        email: email ? email : user.email,
+        password: password ? password : user.password,
+      },
+    });
+
+    if (!updatedUser) {
+      throw new HttpException(
+        'Erro ao atualizar usuário',
+        HttpStatus.BAD_REQUEST,
+      );
+    }
+
+    return { msg: `Usuário ${updatedUser.name} atualizado com sucesso!` };
   }
 
-  async delete(id: string): Promise<string> {
-    return `Usuário ${id} deletado com sucesso!`;
+  async delete(id: string) {
+    const user = await this.getUserById(id);
+
+    const deletedUser = await this.prisma.users.delete({
+      where: {
+        id: Number(id),
+      },
+    });
+
+    if (!deletedUser) {
+      throw new HttpException(
+        'Erro ao deletar usuário',
+        HttpStatus.BAD_REQUEST,
+      );
+    }
+
+    return { msg: `Usuário ${user.name} deletado com sucesso!` };
   }
 }

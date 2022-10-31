@@ -24,13 +24,13 @@ export class UsersController {
 
   // listar todos
   @Get()
-  async findAll(): Promise<string> {
+  async findAll() {
     return this.usersService.findAll();
   }
 
   // listar um
   @Get(':id')
-  async findOne(@Param('id') id: string): Promise<string> {
+  async findOne(@Param('id') id: string) {
     return this.usersService.findOne(id);
   }
 
