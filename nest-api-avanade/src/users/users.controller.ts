@@ -39,13 +39,13 @@ export class UsersController {
   async update(
     @Param('id') id: string,
     @Body() req: UpdateUserDTO,
-  ): Promise<string> {
+  ) {
     return this.usersService.update(id, req);
   }
 
   // deletar
   @Delete(':id')
-  async delete(@Param('id') id: string): Promise<string> {
+  async delete(@Param('id') id: string) {
     return this.usersService.delete(id);
   }
 }

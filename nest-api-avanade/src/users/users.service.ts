@@ -1,10 +1,15 @@
 import { PrismaService } from './../prisma.service';
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { users } from '@prisma/client';
+import * as bcrypt from 'bcrypt';
+import { EmailService } from 'src/email/email.service';
 
 @Injectable()
 export class UsersService {
-  constructor(private prisma: PrismaService) {}
+  constructor(
+    private prisma: PrismaService,
+    private emailService: EmailService,
+  ) {}
 
   // FindUnique é um método do Prisma que retorna um único registro, que contém a constraint unique
   // FindFirst é um método do Prisma que retorna o primeiro registro que satisfaz a condição
@@ -30,6 +35,12 @@ export class UsersService {
     return user ? true : false;
   }
 
+  async crypto(password: string): Promise<string> {
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+    return hashedPassword;
+  }
+
   async createUser(data): Promise<users> {
     const { name, email, password } = data;
 
@@ -40,9 +51,20 @@ export class UsersService {
         data: {
           name,
           email,
-          password,
+          password: await this.crypto(password),
         },
       });
+
+      if (
+        await this.emailService.sendEmail(
+          email,
+          'Bem vindo ao sistema',
+          'Seja muito bem vindo',
+          {},
+        )
+      ) {
+        console.log('Email, enviado com sucesso!');
+      }
 
       if (!user) {
         throw new Error('Erro ao criar usuário');
@@ -77,7 +99,7 @@ export class UsersService {
       data: {
         name: name ? name : user.name,
         email: email ? email : user.email,
-        password: password ? password : user.password,
+        password: password ? await this.crypto(password) : user.password,
       },
     });
 
