@@ -5,6 +5,6 @@ export class AuthService {
   async validaLogin(login: string, password: string) {
     console.log('No Service - login', login);
     console.log('No Service - senha', password);
-    return { login, password, msg: 'Dados cadastrados com sucesso!' };
+    return { login, password, msg: 'Usuário autenticado com sucesso!' };
   }
 }

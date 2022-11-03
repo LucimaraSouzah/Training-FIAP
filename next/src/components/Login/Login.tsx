@@ -8,11 +8,15 @@ import {
 } from "@mui/material";
 import React, { FormEvent, useEffect, useState } from "react";
 import Snackbar from "../utils/Snackbar";
+import axios from "axios";
 
 export default function Login() {
   const [open, setOpen] = useState<boolean | undefined>(false);
   const [error, setError] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string>("");
+  const [email, setEmail] = useState<
+    string | undefined | null | FormDataEntryValue
+  >("");
   const [password, setPassword] = useState<
     undefined | null | string | FormDataEntryValue
   >("");
@@ -21,6 +25,7 @@ export default function Login() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
 
+    setEmail(data.get("email"));
     setPassword(data.get("password"));
     console.log({
       email: data.get("email"),
@@ -35,7 +40,18 @@ export default function Login() {
     } else if (password) {
       setError(false);
       setErrorMessage("");
-      setOpen(true);
+      // setOpen(true);
+      axios.post('http://localhost:3000/auth/login', {
+        login: email,
+        password
+      }).then((response) => {
+        console.log(response)
+        if (response.status === 200) {
+          setOpen(true);
+        }
+      }).catch((error) => {
+        console.log(error)
+      })
     }
   }, [password]);
 
@@ -60,6 +76,7 @@ export default function Login() {
           fullWidth
           label="Digite o login"
           autoComplete="email"
+          type="email"
         />
         <TextField
           margin="normal"

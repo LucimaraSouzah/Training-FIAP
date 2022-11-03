@@ -16,7 +16,7 @@ export class AuthController {
     const { login, password } = req;
 
     if (!login) {
-      throw new HttpException('Login não informado!', HttpStatus.FORBIDDEN);
+      throw new HttpException('Login não encontrado !', HttpStatus.FORBIDDEN);
     }
     console.log('No Controller - login', login);
     console.log('No Controller - senha', password);
