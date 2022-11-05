@@ -13,4 +13,4 @@
 → <a href="https://github.com/LucimaraSouzah/Training-FIAP/tree/main/desafios">Trabalho em grupo</a>
 
 <hr>
-<h3>🟢 Status: Em andamento.. <h3>
+<h3>🔴 Status: Concluído <h3>
