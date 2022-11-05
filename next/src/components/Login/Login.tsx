@@ -9,8 +9,11 @@ import {
 import React, { FormEvent, useEffect, useState } from "react";
 import Snackbar from "../utils/Snackbar";
 import axios from "axios";
+import { useRouter } from "next/router";
 
 export default function Login() {
+  const router = useRouter();
+
   const [open, setOpen] = useState<boolean | undefined>(false);
   const [error, setError] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string>("");
@@ -41,17 +44,24 @@ export default function Login() {
       setError(false);
       setErrorMessage("");
       // setOpen(true);
-      axios.post('http://localhost:3000/auth/login', {
-        login: email,
-        password
-      }).then((response) => {
-        console.log(response)
-        if (response.status === 200) {
-          setOpen(true);
-        }
-      }).catch((error) => {
-        console.log(error)
-      })
+      axios
+        .post("http://localhost:3000/auth/login", {
+          login: email,
+          password,
+        })
+        .then((response) => {
+          console.log(response);
+          if (response.status === 200 || response.status === 201) {
+            setOpen(true);
+
+            setTimeout(() => {
+              router.push("/extract");
+            }, 3000);
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
   }, [password]);
 
